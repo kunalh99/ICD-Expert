@@ -1,38 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.top__container {
+  /* background-color: lime; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom__container {
+  align-self: center;
+  /* background-color: aqua; */
+  width: 100vw;
+  padding-left: 5vw;
+}
+
 .App {
+  height: 100vh;
+  background-color: #f5c7dc;
+}
+
+.left__side {
+  /* background-color: blue; */
+}
+
+.right__side {
+  /* background-color: red; */
+  width: 50vw;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.coding__btns {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.coding__btns .k-button{
+  font-size: 20px;
+  font-weight: 400;
+  box-shadow: 4px 4px 2px 0 rgba(0, 0, 0, 0.2),
+    -4px -4px 8px 0 rgba(255, 255, 255, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coding__btns .k-button:hover {
+  cursor: pointer;
+  background-color: red;
 }

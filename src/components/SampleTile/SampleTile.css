@@ -1,0 +1,13 @@
+.sample__tile {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 'Arvo';
+    margin: 20px 10px 0px 10px;
+}
+
+.sample__tile h1 {
+    padding: 15px 30px 20px 32px;
+}
