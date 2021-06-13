@@ -13,9 +13,7 @@ const PatientDescription = () => {
         .onSnapshot((snapshot) => {
             setDescription(snapshot.data().current)
         });
-
-        console.log(description);
-    });
+    }, []);
 
     return (
         <div className="textarea__component">
@@ -24,7 +22,7 @@ const PatientDescription = () => {
                     {'Patient Medical Description'}
                 </Label>
             </Button>
-            <textarea name='medicalDescription' id='medicalDescription' cols="30" rows="12" value={description}>
+            <textarea name='medicalDescription' id='medicalDescription' cols="30" rows="12" value={description} onChange={(e) => setDescription(e.target.value)}>
 
             </textarea>
         </div>
