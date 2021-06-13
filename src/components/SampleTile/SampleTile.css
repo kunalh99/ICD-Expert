@@ -6,6 +6,8 @@
     font-size: 30px;
     font-family: 'Arvo';
     margin: 20px 10px 0px 10px;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2),
+    -3px -3px 2px 0 rgba(255, 255, 255, 0.5);
 }
 
 .sample__tile h1 {
