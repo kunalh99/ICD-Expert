@@ -44,7 +44,8 @@
 
 .coding__btns {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 10vw;
 }
 .coding__btns .k-button{
   font-size: 20px;
