@@ -1,13 +1,18 @@
+import '@progress/kendo-theme-default/dist/all.css';
+
 import './App.css';
+import { Label } from '@progress/kendo-react-labels';
+import { Button } from '@progress/kendo-react-buttons';
 // import React, { useState, useEffect } from 'react';
 // import {db} from './firebase';
 import PatientDescription from './components/PatientDescription/PatientDescription';
 import GradientButton from './components/GradientButtons/GradientButton';
 import SamplePanel from './components/SamplePanel/SamplePanel';
+import IcdCard from './components/IcdCard/IcdCard';
 // import axios from 'axios';
 
 function App() {
-  const [description, setDescription] = useState('');
+  // const [description, setDescription] = useState('');
   // const [sycons, setSycons] = useState({});
 
   // useEffect(() => {
@@ -55,7 +60,22 @@ function App() {
           </div>
           
           <div className="right__side">
-            <u><h1 style={{fontFamily: "Arvo"}} >Results</h1></u>
+            
+            <div className="icd__codes">
+              <Button style={{width: '10vw', backgroundColor: '#F83C5B'}} className="desc__button">
+                  <Label>
+                      {'Results'}
+                  </Label>
+              </Button>
+              <IcdCard code="A07" />
+              <IcdCard code="G05" />
+              <IcdCard code="H84" />
+              <IcdCard code="D85" />
+              <IcdCard code="Z15" />
+              <IcdCard code="V21" />
+              <IcdCard code="C32" />
+              <IcdCard code="E06" />
+            </div>
             {/* <div className="coding__btns">
               <GradientButton onClick={() => getSyncons()} buttonClassName="sycons__btn" color="#22B573" textColor="#ffffff" text="Get Codes"/>
             </div> */}

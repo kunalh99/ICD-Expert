@@ -17,7 +17,7 @@ const PatientDescription = () => {
 
     return (
         <div className="textarea__component">
-            <Button className="desc__button" disabled={true}>
+            <Button className="desc__button">
                 <Label>
                     {'Patient Medical Description'}
                 </Label>

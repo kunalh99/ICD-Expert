@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+.k-button:hover {
+  cursor:initial;
+  background-color: #ff6fa5;
+}
+
 .main__container {
   display: flex;
   flex-direction: column;
@@ -35,11 +40,17 @@
 }
 
 .right__side {
+  display: flex;
+  justify-content: center;
   /* background-color: red; */
   overflow-y: scroll;
-  height: 80vh;
-  width: 50vw;
+  height: 70vh;
+  width: 60vw;
   text-align: center;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 }
 
 .coding__btns {
