@@ -6,8 +6,6 @@ import SamplePanel from './components/SamplePanel/SamplePanel';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
       <div className="main__container">
         <div className="top__container">
           <div className="left__side">
@@ -20,7 +18,9 @@ function App() {
           </div>
           
           <div className="right__side">
-            <h1 style={{fontFamily: "Arvo"}} >Results</h1>
+            <u><h1 style={{fontFamily: "Arvo"}} >Results</h1></u>
+            {/* <PatientDescription />
+            <PatientDescription /> */}
           </div>
         </div>
 
