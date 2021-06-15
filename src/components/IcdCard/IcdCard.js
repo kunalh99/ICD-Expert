@@ -1,7 +1,7 @@
 import React from 'react';
 import './IcdCard.css';
 import { motion } from 'framer-motion';
-import { Card, CardHeader } from '@progress/kendo-react-layout';
+import { CardHeader } from '@progress/kendo-react-layout';
 
 const IcdCard = ({code}) => {
     return (
