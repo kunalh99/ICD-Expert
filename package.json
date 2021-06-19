@@ -11,6 +11,7 @@
     "@progress/kendo-react-intl": "^4.6.0",
     "@progress/kendo-react-labels": "^4.6.0",
     "@progress/kendo-react-layout": "^4.6.0",
+    "@progress/kendo-react-pdf": "^4.7.0",
     "@progress/kendo-react-progressbars": "^4.6.0",
     "@progress/kendo-react-ripple": "^4.6.0",
     "@progress/kendo-theme-default": "^4.38.1",
@@ -23,6 +24,7 @@
     "python-shell": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loading": "^2.0.3",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },

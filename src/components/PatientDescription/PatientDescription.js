@@ -5,6 +5,7 @@ import { db } from '../../firebase';
 import './PatientDescription.css';
 
 const PatientDescription = () => {
+    // console.log(positions);
     const [description, setDescription] = useState('');
 
     useEffect(() => {
@@ -22,7 +23,9 @@ const PatientDescription = () => {
                     {'Patient Medical Description'}
                 </Label>
             </Button>
-            <textarea name='medicalDescription' id='medicalDescription' cols="30" rows="12" value={description} onChange={(e) => setDescription(e.target.value)}>
+            <textarea name='medicalDescription' id='medicalDescription' cols="30" rows="12" value={description} onChange={(e) => {
+                setDescription(e.target.value)
+            }}>
 
             </textarea>
         </div>
