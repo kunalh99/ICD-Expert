@@ -3,7 +3,7 @@ import './IcdCard.css';
 import { motion } from 'framer-motion';
 import { CardHeader } from '@progress/kendo-react-layout';
 
-const IcdCard = ({code}) => {
+const IcdCard = ({code, ailment}) => {
     return (
         <motion.div
             whileHover={{ scale: 1.1 }} 
@@ -12,8 +12,11 @@ const IcdCard = ({code}) => {
             <CardHeader style={{backgroundColor: '#ff6fa5', borderRadius: '5px'}} className="icd__cardheader">
                 {code}
             </CardHeader>
+            <CardHeader style={{backgroundColor: '#a38cff', borderRadius: '5px'}} className="icd__cardheader">
+                {ailment}
+            </CardHeader>
             <motion.div 
-                    // onClick={() => deleteHabitWrapper(habit)} 
+                    // onClick={() => deleteHabitWrapper(habit)}
                     // className="delete__icon" 
                     onTap={{scale: 0.9}} 
                     whileHover={{ scale: 1.5 }} 
