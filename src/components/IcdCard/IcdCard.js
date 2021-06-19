@@ -15,7 +15,7 @@ const IcdCard = ({code}) => {
             <motion.div 
                     // onClick={() => deleteHabitWrapper(habit)} 
                     // className="delete__icon" 
-                    onTap={{scale: 0.9}} 
+                    // onTap={{scale: 0.9}} 
                     whileHover={{ scale: 1.5 }} 
                     className="icd__card-delete" 
                     style={{ 
