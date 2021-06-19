@@ -10,12 +10,14 @@ import GradientButton from './components/GradientButtons/GradientButton';
 import SamplePanel from './components/SamplePanel/SamplePanel';
 import IcdCard from './components/IcdCard/IcdCard';
 import axios from 'axios';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 
 function App() {
   const [description, setDescription] = useState('');
   const [syncons, setSyncons] = useState({});
   const [knldge, setKnldge] = useState({});
   const [positions, setPositions] = useState([]);
+  const [isCodeFetched, setisCodeFetched] = useState(false);
   // const [codes, setCodes] = useState([]);
   // var cards = [];
   const [cards, setCards] = useState([]);
@@ -34,6 +36,7 @@ function App() {
   var ddToken = 'eyJraWQiOiI1RDVOdFM1UHJBajVlSlVOK1RraXVEZE15WWVMMFJQZ3RaUDJGTlhESHpzPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206Y291bnRyeSI6IklOIiwic3ViIjoiNWFjNjYwNTMtZDNmOC00ODZkLWJkNjYtYzY2NDdkNjc5NmZhIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImN1c3RvbTpwZXJzb25hbGl6YXRpb25BdXRoIjoiMCIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0xX0FVSGdRMDhDQiIsInBob25lX251bWJlcl92ZXJpZmllZCI6ZmFsc2UsImNvZ25pdG86dXNlcm5hbWUiOiI1YWM2NjA1My1kM2Y4LTQ4NmQtYmQ2Ni1jNjY0N2Q2Nzk2ZmEiLCJjdXN0b206Y29tcGFueSI6Ik5BIiwiYXVkIjoiMWVnczYzcTk5cDNzZWJlY2hzYjcyOXQ4MG8iLCJldmVudF9pZCI6ImI1MTNhNGYyLWU0NTEtNDI4OC1iNjA4LTI4MDhlZjA2OGVmYiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjI0MDE4ODAxLCJuYW1lIjoiRGhydXYiLCJleHAiOjE2MjQxMDUyMDEsImlhdCI6MTYyNDAxODgwMSwiZmFtaWx5X25hbWUiOiJEIiwiZW1haWwiOiJkaHJ1di5uYXZ5YTEyM0BnbWFpbC5jb20iLCJjdXN0b206bWFya2V0aW5nQXV0aCI6IjAifQ.Boq5qxYoG3IjyPSCE97Gl6iFXz9Tt_d2wo10-uj3lpbnhYKiJN24OnzMS96RqrWBqcNxtMyCSAsoutQTUouVTNWJ_P_yVZEHAVVPGInWolIfAYR-8x6Y7ur-ookoeLibKZ401vOqYR9sGccaq7zJmzCqjile2HTnb--3EJruwjJvw4ZXkhXl3cw4PZxl7H0jL8P4mPWxwosXWXBPpigtS6eL1iRnZFPmNQJkJ465rWIyCGTS9v1IS0lqe8nvq--omZIE7glnPDZBGnGFQZQCpv9k0_pSgG8R1wflWrvQ8VjQTbbZqcGejRKG6T8bClR6j1oxiMFsJpDrGr9ShNI2Jw';
 
   const getSyncons = () => {
+    setisCodeFetched(true);
     axios({
       method: 'post',
       url: 'https://nlapi.expert.ai/v2/analyze/standard/en/relevants',
@@ -75,12 +78,14 @@ function App() {
     });
     let codes = [];
     let tempCards = [];
+    // state: isCodeFetched = false
     for(let i = 0; i < pos.length; i++) {
       let ailment = description.substring(pos[i][0], pos[i][1]);
       let result = await axios.get(apiURL + ailment)
         .then(response => { return response.data[1][0] } )
       codes.push([result, ailment])
     }
+    setisCodeFetched(false);
 
     for(let i = 0; i < codes.length; i++) {
       tempCards.push(<IcdCard code={codes[i][0]} ailment={codes[i][1]} />)
@@ -97,97 +102,57 @@ function App() {
     // console.log("Posishhh: ", pos);
   }
 
-  // async function getIcdCode(position) {
-  //   console.log("Starting of getIcdCode()...")
-  //   let ailment = description.substring(position[0], position[1]);
-  //   let result = axios.get(apiURL + ailment)
-  //       .then(response => { return response.data[1][0] } )
-  //   console.log(result)
-  //   console.log("Done getIcdCode()...")
-  //   // console.log(codes)
-  //   return await result
-  // }
-
-  // function getCodes() {
-  //   positions.forEach((position) => {
-  //     console.log(getIcdCode(position))
-  //   });
-  //   console.log("CODES UP IN DIS BBBB");
-  //   // console.log(codes);
-  // }
-  
-  // var disease_list = positions.map(function(position){
-  //   let ailment = description.substring(position[0], position[1]);
-  //   let code = getIcdCode(position);
-  //   console.log(code);
-  //   return <IcdCard code={code} ailment={ailment} />;
-  // });
-
-  // function renderCards() {
-  //   console.log("Logging codes from randi bro...")
-  //   console.log(codes);
-  //   var cards = []
-  //   for(let i = 0; i < codes.length; i++) {
-  //     cards.push(<IcdCard code={codes[i][0]} ailment={codes[i][1]} />)
-  //   }
-
-  //   return cards
-  // }
-
-  return (
-    <div className="App">
-      <div className="main__container">
-        <div className="top__container">
-          <div className="left__side">
-            <PatientDescription positions={positions} />
-            <h3 style={{ fontSize: "25px", textAlign: "left", marginLeft: "15vw", fontFamily: "Arvo"}}>Medical Code Options</h3>
-            <div className="coding__btns">
-              <GradientButton buttonClassName="icd__btn" color="#8865ff" textColor="#ffffff" text="ICD-10"/>
-              <GradientButton buttonClassName="hcpcs__btn" color="#8865ff" textColor="#ffffff" text="HCPCS"/>
-              <div onClick={() => getSyncons()}>
-                <GradientButton buttonClassName="sycons__btn" color="#22B573" textColor="#ffffff" text="Get Codes"/>
+  function LoadOrNah() {
+    if(!isCodeFetched) {
+      return (
+        <div className="App">
+          <div className="main__container">
+            <div className="top__container">
+              <div className="left__side">
+                <PatientDescription positions={positions} />
+                <h3 style={{ fontSize: "25px", textAlign: "left", marginLeft: "15vw", fontFamily: "Arvo"}}>Medical Code Options</h3>
+                <div className="coding__btns">
+                  <GradientButton buttonClassName="icd__btn" color="#8865ff" textColor="#ffffff" text="ICD-10"/>
+                  <GradientButton buttonClassName="hcpcs__btn" color="#8865ff" textColor="#ffffff" text="HCPCS"/>
+                  <div onClick={() => getSyncons()}>
+                    <GradientButton buttonClassName="sycons__btn" color="#22B573" textColor="#ffffff" text="Get Codes"/>
+                  </div>
+                  <div>
+                    <GradientButton buttonClassName="clear__btn" color="#B8061A" textColor="#ffffff" text="Clear"/>
+                  </div>
+                </div>
               </div>
-              <div>
-                <GradientButton buttonClassName="clear__btn" color="#B8061A" textColor="#ffffff" text="Clear"/>
+              
+              <div className="right__side">
+                
+                <div className="icd__codes">
+                  <Button style={{width: '10vw', backgroundColor: '#F83C5B', marginBottom: '10px'}} className="desc__button">
+                      <Label>
+                          {'Results'}
+                      </Label>
+                  </Button>
+                  <br></br>
+                  <ul>
+                    { cards }
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="right__side">
-            
-            <div className="icd__codes">
-              <Button style={{width: '10vw', backgroundColor: '#F83C5B', marginBottom: '10px'}} className="desc__button">
-                  <Label>
-                      {'Results'}
-                  </Label>
-              </Button>
-              <br></br>
-              {/* <div>
-                {
-                  JSON.stringify(knldge)
-                }
-              </div> */}
-              <ul>
-                { cards }
-              </ul>
-              {/* <IcdCard code="A07" />
-              <IcdCard code="G05" />
-              <IcdCard code="H84" />
-              <IcdCard code="D85" />
-              <IcdCard code="Z15" />
-              <IcdCard code="V21" />
-              <IcdCard code="C32" />
-              <IcdCard code="E06" /> */}
+    
+            <div className="bottom__container">
+              <SamplePanel />
             </div>
           </div>
         </div>
+      );
+    }
 
-        <div className="bottom__container">
-          <SamplePanel />
-        </div>
-      </div>
-    </div>
-  );
+    else {
+      return <LoadingScreen type='cylon' color='#aaafff' />;
+    }
+  }
+
+  return ( <LoadOrNah/> );
 }
 
 export default App;
