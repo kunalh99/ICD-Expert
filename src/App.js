@@ -60,6 +60,19 @@ function App() {
     });
   }
 
+  function deleteDisease(id) {
+    console.log("Final delete function!")
+    setCards((prevCards) => {
+      console.log(prevCards);
+      return prevCards.filter(
+        (i) => {
+          console.log(i);
+          return i.props.id !== id;
+        }
+      );
+    })
+  }
+
   async function getIDs(respK, respS) {
     const diseaseLabels = new Set(['illness.disease', 'disease.pathological_process', 'process.biological_process']);
     var synconLabelDict = new Object();
@@ -89,7 +102,7 @@ function App() {
     setisCodeFetched(false);
 
     for(let i = 0; i < codes.length; i++) {
-      tempCards.push(<IcdCard id={i} code={codes[i][0]} ailment={codes[i][1]} />)
+      tempCards.push(<IcdCard onDelete={deleteDisease} id={i} code={codes[i][0]} ailment={codes[i][1]} />)
     }
 
     setCards(tempCards);
