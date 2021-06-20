@@ -74,6 +74,24 @@
   background-color: red;
 }
 
+.coding__btns:hover {
+  cursor: pointer;
+}
+
+.hidden__table {
+  position: absolute;
+  z-index: -100;
+}
+
+table td {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+tr {
+  border-bottom: 1pt solid black;
+}
+
 ::-webkit-scrollbar {
   width: 1rem;
 }
