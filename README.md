@@ -1,4 +1,5 @@
 <div align="center">
+  <img width="100px" height="100px" src="https://raw.githubusercontent.com/kunalh99/ICD-Expert/main/public/medicalfavicon.png?token=AIW2C5W2TT6GLQ6RUSSDZALA3IKTI" />
   <h1>ICD Expert</h1>
   <h3>Sentiment & Opinion Mining Natural Language API Hackathon</h3>
 </div>
