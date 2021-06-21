@@ -9,8 +9,6 @@ Converting the doctor's description of a patient into a standardized form by hos
 ## What it does
 ICD-Expert automates the medical coding process using the powerful expert-ai NL API. This would ensure that medical claims are filed on time and correctly. When the user enters the medical report, it is sent to the API for the recognition of relevant diseases. The ailments are identified by ICD-Expert and generate the corresponding ICD-10 codes instantly. With ICD-Expert, more patient claims can be handled without human error in the blink of an eye. 
 
-![2](https://user-images.githubusercontent.com/36544886/122809423-2843bd00-d2df-11eb-9499-5dd92f36c7ee.png)
-
 Once the medical report is entered into the web app and submitted, ICD-Expert makes an API call to the expert NL API's "relevants" endpoint. This helps us look for the diseases within the description. Using the "knowledge" JSON in combination with the "MainSyncons" returned from the API, we get the relevant diseases from the patient description. These are then processed into their respective ICD codes using a "National Library of Medicine (NLM)" API. Finally, the healthcare specialist has the option to export this data as a pdf file.
 
 ![3](https://user-images.githubusercontent.com/36544886/122809479-3560ac00-d2df-11eb-98d2-be00a0c6fac4.png)
